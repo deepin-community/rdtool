@@ -1,0 +1,7 @@
+RDtool for Debian
+----------------------
+
+RD is Ruby's POD. RDtool is formatter for RD. On Debian, RDtool is split
+into 3 packages as follows: rdtool, librd-ruby and rdtool-elisp.
+
+ -- akira yamada <akira@debian.org>, Fri, 14 Jan 2000 17:06:02 +0900

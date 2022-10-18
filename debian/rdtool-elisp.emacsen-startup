@@ -1,0 +1,21 @@
+;;; 50rdtool-elisp.el --- Debian rd-mode startup file  -*-mode: emacs-lisp;-*-
+
+(let* ((pkg "rdtool-elisp")
+       (flavor-name (if (boundp 'debian-emacs-flavor)
+			(symbol-name debian-emacs-flavor)
+		      "emacs"))
+       (pkg-inst (concat "/usr/lib/emacsen-common/packages/install/" pkg))
+       (elc-dir (concat "/usr/share/" flavor-name "/site-lisp/" pkg)))
+  (when (and (file-exists-p elc-dir)
+	     (file-exists-p pkg-inst))
+    (if (fboundp 'debian-pkg-add-load-path-item)
+	(debian-pkg-add-load-path-item elc-dir)
+      (setq load-path (cons elc-dir load-path)))
+    ;;
+    (autoload 'rd-mode "rd-mode" "Major mode for RD editing" t)
+    (setq auto-mode-alist
+	  (cons '("\\.rd\\'" . rd-mode) auto-mode-alist))
+    ;;
+    ))
+
+;;; 50rdtool-elisp.el ends here

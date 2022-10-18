@@ -1,0 +1,18 @@
+Description: use systemwide rd2 configuration file
+Origin: vendor
+--- a/bin/rd2
++++ b/bin/rd2
+@@ -77,10 +77,10 @@
+     load "~/.rd2rc"
+     #  STDERR << "#{$0}: loading ~/.rd2rc\n"
+   else
+-    load "rd/dot.rd2rc"
+-    #  STDERR << "#{$0}: loading rd/dot.rd2rc\n"
++    load "/etc/rdtool/rd2rc"
++    #  STDERR << "#{$0}: loading /etc/rdtool/rd2rc\n"
+   end
+-rescue
++rescue LoadError
+   load "rd/dot.rd2rc"
+ end
+ 

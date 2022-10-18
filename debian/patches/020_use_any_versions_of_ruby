@@ -1,0 +1,16 @@
+--- a/bin/rd2
++++ b/bin/rd2
+@@ -1,4 +1,4 @@
+-#! /usr/bin/ruby1.8 -Kn
++#! /usr/bin/ruby -Kn
+ # -*- coding: ASCII-8BIT -*-
+ =begin
+ = NAME
+--- a/bin/rdswap.rb
++++ b/bin/rdswap.rb
+@@ -1,4 +1,4 @@
+-#! /usr/bin/ruby1.8 -s
++#! /usr/bin/ruby -s
+ #######
+ # rdswap.rb (c) C.Hintze <c.hintze@gmx.net> 30.08.1999
+ #######

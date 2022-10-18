@@ -1,0 +1,59 @@
+Source: rdtool
+Section: text
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: akira yamada <akira@debian.org>,
+           Taku YASUI <tach@debian.org>
+Build-Depends: debhelper (>= 9),
+               gem2deb,
+               racc
+Standards-Version: 3.9.7
+Homepage: https://uwabami.github.com/rdtool/
+Vcs-Git: https://anonscm.debian.org/git/pkg-ruby-extras/rdtool.git
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-ruby-extras/rdtool.git
+XS-Ruby-Versions: all
+
+Package: rdtool
+Architecture: all
+Depends: ruby | ruby-interpreter,
+         ruby-rd (= ${source:Version}),
+         ${misc:Depends}
+Description: RD document formatter
+ RD is multipurpose documentation format created for documentating Ruby and
+ output of Ruby world.
+ .
+ You can embed RD into Ruby script. And RD have neat syntax which help you
+ to read document in Ruby script. On the other hand, RD have a feature for
+ class reference.
+ .
+ RDtool is one of frontends of formatter for RD.  This package provides rd2
+ command.
+
+Package: ruby-rd
+Section: ruby
+Architecture: all
+Depends: ${misc:Depends}
+Description: RDTool library for Ruby - library
+ RD is multipurpose documentation format created for documentating Ruby and
+ output of Ruby world.
+ .
+ You can embed RD into Ruby script. And RD have neat syntax which help you
+ to read document in Ruby script. On the other hand, RD have a feature for
+ class reference.
+ .
+ This package contains a library which is used by RDTool.
+
+Package: rdtool-elisp
+Architecture: all
+Depends: emacs | emacsen,
+         ${misc:Depends}
+Suggests: rdtool
+Description: Emacs-lisp rd-mode for writing RD document
+ RD is multipurpose documentation format created for documentating Ruby and
+ output of Ruby world.
+ .
+ You can embed RD into Ruby script. And RD have neat syntax which help you
+ to read document in Ruby script. On the other hand, RD have a feature for
+ class reference.
+ .
+ This package provides Emacs major-mode for RD editing.

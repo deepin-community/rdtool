@@ -1,0 +1,24 @@
+#!/usr/bin/make -f
+
+export DH_RUBY_USE_DH_AUTO_INSTALL_DESTDIR=1
+export DEB_DESTDIR=debian/tmp
+
+%:
+	dh $@ --buildsystem=ruby --with ruby
+
+
+
+override_dh_install:
+	mkdir -p $(DEB_DESTDIR)/etc/rdtool $(DEB_DESTDIR)/usr/share/emacs/site-lisp/rdtool-elisp
+	mv $(DEB_DESTDIR)/usr/bin/rdswap.rb $(DEB_DESTDIR)/usr/bin/rdswap
+	mv $(DEB_DESTDIR)/usr/lib/ruby/vendor_ruby/rd/dot.rd2rc $(DEB_DESTDIR)/etc/rdtool/rd2rc
+	cp utils/rd-mode.el $(DEB_DESTDIR)/usr/share/emacs/site-lisp/rdtool-elisp
+	dh_install -O--buildsystem=ruby
+
+override_dh_installman:
+	ruby -Ilib bin/rd2 -rrd/rd2man-lib -oRD2 bin/rd2
+	mv RD2.1 debian/rd2.1
+	ruby -Ilib bin/rd2 -rrd/rd2man-lib -oRDSWAP debian/rdswap.rd
+	mv RDSWAP.1 debian/rdswap.1
+	dh_installman
+

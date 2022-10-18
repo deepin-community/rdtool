@@ -1,0 +1,66 @@
+Description: fix relative path to find dummy.rb as test/ is not in the loadpath
+Origin: vendor
+
+--- a/test/test-nonterminal-inline.rb
++++ b/test/test-nonterminal-inline.rb
+@@ -2,7 +2,7 @@
+ 
+ require 'rd/inline-element'
+ require 'rd/document-struct'
+-require 'dummy'
++require 'test/dummy'
+ 
+ include RD
+ 
+--- a/test/test-reference.rb
++++ b/test/test-reference.rb
+@@ -4,7 +4,7 @@
+ require 'rd/document-struct'
+ require 'rd/rd-struct'
+ require 'rd/loose-struct'
+-require 'dummy'
++require 'test/dummy'
+ 
+ include RD
+ 
+--- a/test/test-visitor.rb
++++ b/test/test-visitor.rb
+@@ -8,7 +8,7 @@
+ require 'rd/inline-element'
+ require 'rd/tree'
+ require 'rd/rd-struct'
+-require 'dummy'
++require 'test/dummy'
+ 
+ include RD
+ 
+--- a/test/test-output-format-visitor.rb
++++ b/test/test-output-format-visitor.rb
+@@ -1,6 +1,6 @@
+ require 'test/unit'
+ 
+-require 'temp-dir'
++require 'test/temp-dir'
+ 
+ require 'rd/output-format-visitor'
+ require 'rd/tree'
+--- a/test/test-rbl-file.rb
++++ b/test/test-rbl-file.rb
+@@ -1,6 +1,6 @@
+ require 'test/unit'
+ 
+-require 'temp-dir'
++require 'test/temp-dir'
+ 
+ require 'rd/rbl-file'
+ require 'rd/block-element'
+--- a/test/test-reference-resolver.rb
++++ b/test/test-reference-resolver.rb
+@@ -1,6 +1,6 @@
+ require 'test/unit'
+ 
+-require 'temp-dir'
++require 'test/temp-dir'
+ 
+ require 'rd/reference-resolver'
+ require 'rd/tree'
